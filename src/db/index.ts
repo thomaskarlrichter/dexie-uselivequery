@@ -8,15 +8,9 @@ class FriendsDB extends Dexie {
 
   constructor() {
     super("friendsDB");
-    this.version(2).stores({
-      friends: `
-        ++id,
-        age`
-    });
-    this.version(3).stores({
-      todos: `
-        ++id,
-        name`
+    this.version(1).stores({
+      friends: "++id,age",
+      todos: "++id,name"
     });
    
   }

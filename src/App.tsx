@@ -9,7 +9,7 @@ import "./styles.css";
 export default function App() {
   return (
     <div className="App">
-      <h1>Dexie useLiveQuery() sample</h1>
+      <h1>Dexie useLiveQuery() todo</h1>
       <FriendList />
       <AddFriend />
       <TodoList />

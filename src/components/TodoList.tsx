@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../db";
 
@@ -22,13 +22,16 @@ export function TodoList() {
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.name}, {todo.finished}
+            {todo.name}, {todo.finished?"finished":"not finished"}
             <button
-              onClick={() =>
-                db.todos.where({ id: todo.id }).modify((f) => !f.finished)
-              }
+              onClick={() => {
+                db.todos.where({ id: todo.id }).modify((f) => {
+                  console.log(f.finished)
+                  f.finished=f.finished?false:true;
+                })
+              }}
             >
-              finisshed!
+              {!todo.finished?"ok":"reset"}
             </button>
           </li>
         ))}
