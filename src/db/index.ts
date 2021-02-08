@@ -1,8 +1,10 @@
 import Dexie, { Table } from "dexie";
 import { Friend } from "./Friend";
+import { Todo } from "./Todo";
 
 class FriendsDB extends Dexie {
   friends!: Table<Friend>;
+  todos!: Table<Todo>;
 
   constructor() {
     super("friendsDB");
@@ -11,6 +13,12 @@ class FriendsDB extends Dexie {
         ++id,
         age`
     });
+    this.version(3).stores({
+      todos: `
+        ++id,
+        name`
+    });
+   
   }
 }
 

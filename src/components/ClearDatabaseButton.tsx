@@ -15,3 +15,28 @@ export function ClearDatabaseButton() {
     </button>
   );
 }
+export function ClearTodosButton() {
+  return (
+    <button
+      className="large-button"
+      onClick={() => {
+        db.todos.clear()
+      }}
+    >
+      Clear Todos
+    </button>
+  );
+}
+
+export function ClearFriendsButton() {
+  return (
+    <button
+      className="large-button"
+      onClick={() => {
+        db.friends.clear()
+      }}
+    >
+      Clear Friends
+    </button>
+  );
+}
