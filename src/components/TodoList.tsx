@@ -26,13 +26,19 @@ export function TodoList() {
             <button
               onClick={() => {
                 db.todos.where({ id: todo.id }).modify((f) => {
-                  console.log(f.finished)
+                  console.log(f.id, "is ", f.finished)
                   f.finished=f.finished?false:true;
                 })
               }}
             >
               {!todo.finished?"ok":"reset"}
             </button>
+
+            <button onClick={()=>{
+              db.todos.where({ id: todo.id }).delete();
+              console.log(todo.id, "deleted")
+            }}>Delete
+              </button>
           </li>
         ))}
       </ul>
